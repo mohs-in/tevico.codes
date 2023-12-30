@@ -5,7 +5,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class QuestionOne {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "/Users/mohsin/Downloads/chromedriver-mac-arm64/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "/Users/mohsin/Downloads/chromedriver-mac-arm64/chromedriver");
         SafariDriver driver = new SafariDriver();
 
         driver.get("https://console.tevi.co/login");
