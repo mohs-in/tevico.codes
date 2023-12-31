@@ -1,15 +1,10 @@
 package org.tevico;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-
-
 import java.time.Duration;
 
 public class QuestionTwo {
@@ -80,37 +75,9 @@ public class QuestionTwo {
 
             System.out.println("Test Successful");
 
-
-//            WebElement deleteUser = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(@class, 'btn-danger') and contains(@class, 'ng-star-inserted') and @type='submit' and text()=' Delete ']\n")));
-//            deleteUser.click();
-//            System.out.println("User Deleted Successfully");
-//            WebElement inviteframe = driver.findElement(By.tagName("modal-conatainer"));
-//            driver.switchTo().frame(inviteframe);
-//
-//            WebElement inviteEmail = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("email")));
-//            inviteEmail.sendKeys("tevicouser@gmail.com");
-//            System.out.println("Invite Email Added");
-
-
-//            WebElement inviteEmail = driver.findElement(By.name("email"));
-//            Thread.sleep(2000);
-//            WebElement inviteEmail = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("email")));
-//            WebElement frame1 = driver.findElement(By.tagName("iframe"));
-//            driver.switchTo().frame(frame1);
-//            WebElement inviteEmail = driver.findElement(By.xpath("/html/body/modal-container/div[2]/div/ng-component/div[2]/form/div/input"));
-//            inviteEmail.sendKeys("tevicouser@gmail.com");
-//            System.out.println("Invite Email Added");
-
-//            WebElement arrmark = driver.findElement(By.xpath("ng-select[formcontrolname='role']"));
-//            System.out.println(arrmark);
-
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-
 }
-// delete user path .btn.btn-ghost-danger.dropdown-item css selector
-// delete user xpath //button[normalize-space()='Delete User']
-
-//button[normalize-space()='Delete']
+//sovled
