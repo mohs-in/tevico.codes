@@ -37,7 +37,15 @@ public class QuestionFive {
             WebElement tevicoText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"main\"]/ng-component/div/div[2]/div/div/div[2]/app-profile-switch-account/div/div[2]/ul/li[2]/div/a/div[2]/span[2]")));
             tevicoText.click();
             System.out.println("Switching user to 60011");
-            
+
+            WebElement securitySection = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/security']//span[@class='nav-link-title'][contains(text(),'Security')]")));
+            securitySection.click();
+
+            driver.navigate().to("https://console.tevi.co/security");
+            driver.get("https://console.tevi.co/security");
+            System.out.println("Opened Security Page");
+            Thread.sleep(10000);
+            System.out.println("Viewing the report");
 
         } catch (Exception e) {
             System.out.println(e);
