@@ -18,23 +18,23 @@ public class QuestionFour {
 
         try {
             System.out.println("Landed on Login Page");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-            WebElement email = driver.findElement(By.id("signinSrEmail"));
+            WebElement email = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signinSrEmail")));
             email.clear();
             email.sendKeys("tevicouser@gmail.com");
 
-            WebElement password = driver.findElement(By.id("signupSrPassword"));
+            WebElement password = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signupSrPassword")));
             password.clear();
             password.sendKeys("@10724e2eF");
 
-            WebElement SignInButton = driver.findElement(By.className("btn-primary"));
+            WebElement SignInButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("btn-primary")));
             SignInButton.click();
 
             System.out.println("User Signed In Successful.");
 
 //            driver.get("https://console.tevi.co/home");
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             WebElement tevicoText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"main\"]/ng-component/div/div[2]/div/div/div[2]/app-profile-switch-account/div/div[2]/ul/li[2]/div/a/div[2]/span[2]")));
             tevicoText.click();
             System.out.println("Clicked on Tevico Engineering");
