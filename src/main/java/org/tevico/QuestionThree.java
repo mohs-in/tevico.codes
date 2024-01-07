@@ -16,11 +16,13 @@ public class QuestionThree {
         driver.manage().window().maximize();
 
         try {
+            // Set up WebDriverWait to wait for a max of given seconds before throwing an exception
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
             System.out.println("Landed on Login Page");
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             WebElement forgotPass = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/forgotpass']")));
-
+            // Click on Forgot Password? link
             forgotPass.click();
             System.out.println("Clicked on Forgot Password?");
 
@@ -28,13 +30,16 @@ public class QuestionThree {
             driver.get("https://console.tevi.co/forgotpass");
             System.out.println("Opened Forgot Password Page");
 
-            WebElement email = driver.findElement(By.id("signinSrEmail"));
+            WebElement email = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signinSrEmail")));
+            // Clear any existing text in the email field and enter the specified email address
             email.clear();
             email.sendKeys("tevicouser@gmail.com");
 
-            WebElement submitButton = driver.findElement(By.className("btn-primary"));
+            WebElement submitButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("btn-primary")));
+            // Click on the Submit button
             submitButton.click();
 
+            // Display the Forget link is sent successfully
             System.out.println("Forgot Link Sent Successfully");
 
         } catch (Exception e) {
