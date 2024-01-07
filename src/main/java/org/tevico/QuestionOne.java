@@ -16,7 +16,7 @@ public class QuestionOne {
         driver.manage().window().maximize();
 
         try {
-            // Set up WebDriverWait to wait for a max of 10 sec before throwing an exception
+            // Set up WebDriverWait to wait for a max of given seconds before throwing an exception
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
             WebElement email = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signinSrEmail")));
