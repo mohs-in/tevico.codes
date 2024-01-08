@@ -19,7 +19,7 @@ public class QuestionFive {
 
         try {
             JavascriptExecutor js = (JavascriptExecutor)driver;
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
             WebElement email = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signinSrEmail")));
             // Clear any existing text in the email field and enter the specified email address
