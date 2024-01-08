@@ -1,6 +1,7 @@
 package org.tevico;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,34 +18,39 @@ public class QuestionFour {
         driver.manage().window().maximize();
 
         try {
-            System.out.println("Landed on Login Page");
+            JavascriptExecutor js = (JavascriptExecutor)driver;
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
+            System.out.println("Landed on Login Page");
+
             WebElement email = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signinSrEmail")));
+            // Clear any existing text in the email field and enter the specified email address
             email.clear();
             email.sendKeys("tevicouser@gmail.com");
 
             WebElement password = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signupSrPassword")));
+            // Clear any existing password in the password field and enter the specified password
             password.clear();
             password.sendKeys("@10724e2eF");
 
             WebElement SignInButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("btn-primary")));
+            // Click on the Sign-In button
             SignInButton.click();
 
             System.out.println("User Signed In Successful.");
 
-//            driver.get("https://console.tevi.co/home");
-
-            WebElement tevicoText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"main\"]/ng-component/div/div[2]/div/div/div[2]/app-profile-switch-account/div/div[2]/ul/li[2]/div/a/div[2]/span[2]")));
-            tevicoText.click();
-            System.out.println("Clicked on Tevico Engineering");
-
-            Thread.sleep(5000);
+            WebElement tevicoText = wait.until(ExpectedConditions.presenceOfElementLocated(By.partialLinkText("Tevico Engineering")));
+            // Click on the Tevico Engineering in homepage to switch user to 60011
+            js.executeScript("arguments[0].click()", tevicoText);
+            System.out.println("Switching to User 60011");
 
             String text = "60011 (Read-only Admin)";
-            boolean userCheck = wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"main\"]/ng-component/div/div[1]/div/div[1]/div[1]/div/div/span[2]"), text));
+            String xpathExpression = "//*[contains(text(), '" + text + "')]";
 
-            if(userCheck) {
+            WebElement userCheck = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathExpression)));
+
+            // Check the Welcome title is displayed with text "60011 (Read-only Admin)"
+            if(userCheck.isDisplayed()) {
                 System.out.println("Welcome Title Verified");
             }
 
